@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.7.2'
+ruby '~> 3'
+gem 'rails', '~> 7'
 
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'sqlite3', '~> 1.4'
 
 group :development do
