@@ -7,12 +7,12 @@
 ```
 bundle install
 ./bin/setup
+./bin/rails db:seed
 ./bin/rails server
 ```
 
 ### Frontend
 
 ```
-npm install
-gulp
+./node_modules/.bin/gulp
 ```
