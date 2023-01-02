@@ -20,3 +20,9 @@
     <%= render partial: 'invoice', collection: @invoices  %>
   </tbody>
 </table>
+<br />
+<%# 
+  this button is outside the table context
+  therefore it has to be different
+ %>
+<%= link_to 'New invoice', new_invoice_path, class: 'p-button', title: 'New invoice' %>

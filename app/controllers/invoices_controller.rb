@@ -5,6 +5,22 @@ class InvoicesController < ApplicationController
     @invoices = Invoice.all
   end
 
+  def new
+    @invoice = Invoice.new
+  end
+
+  def create
+    @invoice = Invoice.new(invoice_params)
+
+    respond_to do |format|
+      if @invoice.save
+        format.html { redirect_to invoices_path, notice: "Invoice created for #{@invoice.client_name}" }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @invoice.destroy!
 
@@ -28,5 +44,9 @@ class InvoicesController < ApplicationController
 
   def find_invoice
     @invoice = Invoice.find params[:id]
+  end
+
+  def invoice_params
+    params.require(:invoice).permit(:client_name, :amount, :tax)
   end
 end
